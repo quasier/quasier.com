@@ -1,0 +1,66 @@
+<!doctype html>
+<html>
+<head>
+<link rel="icon" href="icon.png" sizes="32x32" type="image/png">
+
+<script src="//quasier.com/jquery.min.js"></script>
+<script src="//quasier.com/resize.js"></script>
+<meta charset="UTF-8">
+<title>Quick-e Charge</title>
+<style type="text/css">
+
+	#mainDiv {
+		position: absolute;
+		margin: auto;
+		
+		top: 0px;
+		right: 0px;
+		bottom: 0px;
+		left: 0px;
+	}	
+	#backgroundDiv {
+		position: absolute;
+		margin: auto;
+		
+		width: 100%;
+		
+		background:#E6E6E6;
+		top: 0px;
+		right: 0px;
+		bottom: 0px;
+		left: 0px;
+	}
+</style>
+
+</head>
+    <body>
+       
+       <div id="backgroundDiv"></div>
+       <div id="mainDiv"><img src="mainDiv.svg" style="max-height: 100%; max-width:100%" alt="Quick-e"></div>
+        
+		<script>
+			var size, windowHeight, windowWidth;
+			function resizeDiv() {
+				
+				windowHeight = $(window).height()*0.95;
+				windowWidth = $(window).width()*0.95;
+				
+				if (windowHeight <= windowWidth) {
+					$('#mainDiv').height(windowHeight);
+					$('#mainDiv').width(windowHeight);
+					$('#backgroundDiv').height(windowHeight*0.5);
+				} else {
+					$('#mainDiv').height(windowWidth);
+					$('#mainDiv').width(windowWidth);
+					$('#backgroundDiv').height(windowWidth*0.5);
+				}	
+			}
+			
+			$(window).resize(function() {
+				resizeDiv()
+			});
+			
+			$(window).trigger('resize');
+		</script>
+    </body>
+</html>

@@ -1,0 +1,490 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<title>Contacts</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="icon" href="../img/favicon.ico" type="image/x-icon">
+	<meta name="format-detection" content="telephone=no">
+	<meta name="description" content="Your description">
+	<meta name="keywords" content="Your keywords">
+	<meta name="author" content="Your name">
+
+	<!--CSS-->
+	<link rel="stylesheet" href="../css/bootstrap.css">
+	<link rel="stylesheet" href="../css/style.css">
+	<link rel="stylesheet" href="../css/contact-form.css">
+
+	<!--JS-->
+	<script src="../js/jquery.js"></script>
+	<script src="../js/jquery-migrate-1.2.1.min.js"></script>
+	<script src='//maps.googleapis.com/maps/api/js?v=3.exp&amp;sensor=false'></script>
+	<script src="../js/TMForm.js"></script>
+	<!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+
+    <div id="ie6-alert" style="width: 100%; text-align:center;">
+    <img src="http://beatie6.frontcube.com/images/ie6.jpg" alt="Upgrade IE 6" width="640" height="344" border="0" usemap="#Map" longdesc="http://die6.frontcube.com" />
+      <map name="Map" id="Map"><area shape="rect" coords="496,201,604,329" href="http://www.microsoft.com/windows/internet-explorer/default.aspx" target="_blank" alt="Download Interent Explorer" /><area shape="rect" coords="380,201,488,329" href="http://www.apple.com/safari/download/" target="_blank" alt="Download Apple Safari" /><area shape="rect" coords="268,202,376,330" href="http://www.opera.com/download/" target="_blank" alt="Download Opera" /><area shape="rect" coords="155,202,263,330" href="http://www.mozilla.com/" target="_blank" alt="Download Firefox" />
+        <area shape="rect" coords="35,201,143,329" href="http://www.google.com/chrome" target="_blank" alt="Download Google Chrome" />
+      </map>
+      </div>
+      <![endif]-->
+
+</head>
+
+<body>
+	<!--========================================================
+                        HEADER
+=========================================================-->
+			<header id="header">
+            <div id="stuck_container" class="stuck_container">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <div class="brand">
+                                <h1 class="brand_name">
+                                <a href="./">
+                                    <img src="../img/logo.svg" alt="logo">
+                                </a>
+                                </h1>
+                            </div>
+
+						<nav class="nav navbar navbar-default navbar-static-top tm_navbar">
+							<ul class="sf-menu">
+								<li>
+									<a href="../">main</a>
+								</li>
+								<li>
+									<a href="../about">about</a>
+								</li>
+								<li>
+									<a href="../ourproducts">our products</a>
+								</li>
+								<li class="active">
+									<a href="./">contacts</a>
+								</li>
+							</ul>
+						</nav>
+					</div>
+				</div>
+			</div>
+		</div>
+	</header>
+	<!--========================================================
+                        CONTENT
+=========================================================-->
+	<div id="content">
+		<div class="block-2">
+			<div class="container">
+				<div class="row">
+					<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+						<h4 class="title title-6">How to find us</h4>
+						<div class="google-map-api indent-1">
+							<div id="map-canvas" class="gmap"></div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="block-2 bg-2">
+			<div class="container">
+				<div class="row">
+					<div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
+						<h4 class="title title-5">Address</h4>
+						<ul class="list list-5">
+							<li class="address"><i class="fa fa-globe"></i><div class="wrapper">
+									<h5>Quasier Limited<br>91 Brick Lane<br>London, E1 6QL</h5>
+								</div>
+							</li>
+							<li class="phone"><i class="fa fa-phone"></i><div class="wrapper">
+									<h5>+44 (0) 8133 3205</h5>
+								</div>
+							</li>
+							<li class="phone"><i class="fa fa-fax"></i><div class="wrapper">
+									<h5>+44 (0) 8181 6343</h5>
+								</div>
+							</li>
+							<li class="phone"><i class="fa fa-phone"></i><div class="wrapper">
+									<h5>info@quasier.com</h5>
+								</div>
+							</li>
+						</ul>
+					</div>
+					<div class="col-lg-8 col-md-8 col-sm-12 col-xs-12">
+						<h4 class="title title-5">Contact Form</h4>
+						<form id="contact-form" class=" indent-1">
+							<div class="contact-form-loader"></div>
+							<fieldset>
+								<label class="name form-div-1">
+									<input type="text" name="name" placeholder="Name" value="" data-constraints="@Required @JustLetters" />
+									<span class="empty-message">*This field is required.</span>
+									<span class="error-message">*This is not a valid name.</span>
+								</label>
+								<label class="email form-div-2">
+									<input type="text" name="email" placeholder="E-mail" value="" data-constraints="@Required @Email" />
+									<span class="empty-message">*This field is required.</span>
+									<span class="error-message">*This is not a valid email.</span>
+								</label>
+								<label class="phone form-div-3">
+									<input type="text" name="phone" placeholder="Phone" value="" data-constraints="@Required @JustNumbers" />
+									<span class="empty-message">*This field is required.</span>
+									<span class="error-message">*This is not a valid phone.</span>
+								</label>
+								<label class="message form-div-4">
+									<textarea name="message" placeholder="Message" data-constraints='@Length(min=20,max=999999)'>
+
+									</textarea>
+									<span class="empty-message">*This field is required.</span>
+									<span class="error-message">*The message is too short.</span>
+								</label>
+								<!-- <label class="recaptcha"><span class="empty-message">*This field is required.</span></label> -->
+								<div class="btns">
+									<a href="#" data-type="submit" class="btn-default btn btn-4">Submit</a>
+									<p>*required fields</p>
+								</div>
+							</fieldset>
+							<div class="modal fade response-message">
+								<div class="modal-dialog">
+									<div class="modal-content">
+										<div class="modal-header">
+											<button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+												&times;
+											</button>
+											<h4 class="modal-title">Modal title</h4>
+										</div>
+										<div class="modal-body">
+											You message has been sent! We will be in touch soon.
+										</div>
+									</div>
+								</div>
+							</div>
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+		<!--========================================================
+                        FOOTER
+=========================================================-->
+	<footer>
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+					<div class="left-side">
+						<div class="privacy_block">
+							<a href="./" class="brand"><h1>Quasier Limited</h1></a> &copy; <span id="copyright-year"></span><a href="../privacypolicy" class="link link-2">Privacy policy</a>
+						</div>
+					</div>
+					<div class="right-side">
+						<nav class="nav navbar navbar-default navbar-static-top tm_navbar">
+							<ul class="sf-menu">
+								<li>
+									<a href="../">main</a>
+								</li>
+								<li>
+									<a href="../about">about</a>
+								</li>
+								<li>
+									<a href="../ourproducts">our products</a>
+								</li>
+								<li class="active">
+									<a href="./">contacts</a>
+								</li>
+							</ul>
+						</nav>
+					</div>
+				</div>
+			</div>
+		</div>
+	</footer>
+		<!--JS-->
+		<script src="js/bootstrap.min.js"></script>
+		<script src="js/tm-scripts.js"></script>
+		<script>
+			google_api_map_init();
+
+			function google_api_map_init() {
+				var map;
+			var coordData = new google.maps.LatLng(parseFloat(51.521203), parseFloat(-0.071851, 10));
+			var markCoord1 = new google.maps.LatLng(parseFloat(51.521203), parseFloat(-0.071851, 10));
+			var markCoord2 = new google.maps.LatLng(parseFloat(51.521203), parseFloat(-0.071851, 10));
+			var markCoord3 = new google.maps.LatLng(parseFloat(51.521203), parseFloat(-0.071851, 10));
+			var markCoord4 = new google.maps.LatLng(parseFloat(51.521203), parseFloat(-0.071851, 10));
+			var markCoord5 = new google.maps.LatLng(parseFloat(51.521203), parseFloat(-0.071851, 10));
+				var marker;
+
+				var styleArray = [
+					{
+						"featureType": "administrative",
+						"elementType": "all",
+						"stylers": [
+							{
+								"visibility": "on"
+						},
+							{
+								"saturation": -100
+						},
+							{
+								"lightness": 20
+						}
+					]
+				},
+					{
+						"featureType": "landscape.man_made",
+						"elementType": "all",
+						"stylers": [
+							{
+								"visibility": "simplified"
+						},
+							{
+								"saturation": -60
+						},
+							{
+								"lightness": 10
+						}
+					]
+				},
+					{
+						"featureType": "landscape.natural",
+						"elementType": "all",
+						"stylers": [
+							{
+								"visibility": "simplified"
+						},
+							{
+								"saturation": -60
+						},
+							{
+								"lightness": 60
+						}
+					]
+				},
+					{
+						"featureType": "poi",
+						"elementType": "all",
+						"stylers": [
+							{
+								"visibility": "off"
+						},
+							{
+								"saturation": -100
+						},
+							{
+								"lightness": 60
+						}
+					]
+				},
+					{
+						"featureType": "road",
+						"elementType": "all",
+						"stylers": [
+							{
+								"visibility": "on"
+						},
+							{
+								"saturation": -100
+						},
+							{
+								"lightness": 40
+						}
+					]
+				},
+					{
+						"featureType": "transit",
+						"elementType": "all",
+						"stylers": [
+							{
+								"visibility": "off"
+						},
+							{
+								"saturation": -100
+						},
+							{
+								"lightness": 60
+						}
+					]
+				},
+					{
+						"featureType": "water",
+						"elementType": "all",
+						"stylers": [
+							{
+								"visibility": "on"
+						},
+							{
+								"saturation": -10
+						},
+							{
+								"lightness": 30
+						}
+					]
+				}
+			];
+				var markerIcon = {
+					url: "../img/gmap_marker.png",
+					size: new google.maps.Size(33, 124),
+					origin: new google.maps.Point(0, 0),
+					anchor: new google.maps.Point(21, 70)
+				};
+				/*var markerIcon = { 
+						url: "img/gmap_marker.png", 
+						size: new google.maps.Size(53, 71), 
+						origin: new google.maps.Point(0,0), 
+						anchor: new google.maps.Point(21, 70) 
+				}; */
+				function initialize() {
+					var mapOptions = {
+						zoom: 13,
+						center: coordData,
+						scrollwheel: false,
+						styles: styleArray
+					}
+
+					var contentString = "<div></div>";
+					var infowindow = new google.maps.InfoWindow({
+						content: contentString,
+						maxWidth: 200
+					});
+					marker = new google.maps.Marker({
+						map: map,
+						draggable: true,
+						position: coordData,
+						icon: markerIcon
+					});
+					var map = new google.maps.Map(document.getElementById("map-canvas"), mapOptions);
+					marker = new google.maps.Marker({
+						map: map,
+						position: markCoord1,
+						icon: markerIcon
+					});
+
+					/*marker1 = new google.maps.Marker({ 
+						map:map, 
+						position: markCoord2, 
+						icon: markerIcon
+				}); 
+	
+				marker2 = new google.maps.Marker({ 
+						map:map, 
+						position: markCoord3, 
+						icon: markerIcon
+				}); 
+	
+				marker3 = new google.maps.Marker({ 
+						map:map, 
+						position: markCoord4, 
+						icon: markerIcon
+				}); 
+	
+				marker4 = new google.maps.Marker({ 
+						map:map, 
+						position: markCoord5, 
+						icon: markerIcon
+				}); */
+
+					var contentString = '<div id="content">' +
+						'<div id="siteNotice">' +
+						'</div>' +
+						'<div id="bodyContent">' +
+						'<p>4578 Marmora Road, Glasgow D04 89GR <span>800 2345-6789</span></p>' +
+						'</div>' +
+						'</div>';
+
+					var contentString1 = '<div id="content">' +
+						'<div id="siteNotice">' +
+						'</div>' +
+						'<div id="bodyContent">' +
+						'<p>4578 Marmora Road, Glasgow D04 89GR <span>800 2345-6789</span></p>' +
+						'</div>' +
+						'</div>';
+					/*
+				var contentString2 = '<div id="content">'+
+				'<div id="siteNotice">'+
+				'</div>'+
+				'<div id="bodyContent">'+
+				'<p>4578 Marmora Road, Glasgow D04 89GR <span>800 2345-6789</span></p>'+
+				'</div>'+
+				'</div>';
+	
+				var contentString3 = '<div id="content">'+
+				'<div id="siteNotice">'+
+				'</div>'+
+				'<div id="bodyContent">'+
+				'<p>4578 Marmora Road, Glasgow D04 89GR <span>800 2345-6789</span></p>'+
+				'</div>'+
+				'</div>';
+	
+				var contentString4 = '<div id="content">'+
+				'<div id="siteNotice">'+
+				'</div>'+
+				'<div id="bodyContent">'+
+				'<p>4578 Marmora Road, Glasgow D04 89GR <span>800 2345-6789</span></p>'+
+				'</div>'+
+				'</div>';*/
+
+					var infowindow = new google.maps.InfoWindow({
+						content: contentString
+					});
+
+					var infowindow1 = new google.maps.InfoWindow({
+						content: contentString1
+					});
+					/*
+				var infowindow2 = new google.maps.InfoWindow({
+						content: contentString2
+				});
+	
+				var infowindow2 = new google.maps.InfoWindow({
+						content: contentString3
+				});
+	
+				var infowindow2 = new google.maps.InfoWindow({
+						content: contentString4
+				});*/
+
+
+
+					google.maps.event.addListener(marker, 'click', function () {
+						infowindow.open(map, marker);
+						$('.gm-style-iw').parent().parent().addClass("gm-wrapper");
+					});
+
+					/*google.maps.event.addListener(marker1, 'click', function() {
+					infowindow.open(map,marker1);
+					$('.gm-style-iw').parent().parent().addClass("gm-wrapper");
+				});
+	
+				google.maps.event.addListener(marker2, 'click', function() {
+					infowindow.open(map,marker2);
+					$('.gm-style-iw').parent().parent().addClass("gm-wrapper");
+				});
+	
+				google.maps.event.addListener(marker3, 'click', function() {
+					infowindow.open(map,marker3);
+					$('.gm-style-iw').parent().parent().addClass("gm-wrapper");
+				});
+	
+				google.maps.event.addListener(marker4, 'click', function() {
+					infowindow.open(map,marker4);
+					$('.gm-style-iw').parent().parent().addClass("gm-wrapper");
+				});*/
+
+					google.maps.event.addDomListener(window, 'resize', function () {
+
+						map.setCenter(coordData);
+
+						var center = map.getCenter();
+					});
+				}
+
+				google.maps.event.addDomListener(window, "load", initialize);
+
+			}
+		</script>
+</body>
+
+</html>
